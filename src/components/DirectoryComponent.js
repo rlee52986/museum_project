@@ -1,61 +1,41 @@
 import { Component } from 'react';
+import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class Directory extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            exhibits: [
-                {
-                    id: 0,
-                    name: 'Modern',
-                    image: 'assets/images/modern.jpg',
-                    date: 12021,
-                    description: "This is the modern art exhibit of the museum"
-                },
-                {
-                    id: 1,
-                    name: 'Impressionism',
-                    image: 'assets/images/impressionism.jpg',
-                    date: 22021,
-                    description: "This is the impressionism exhibit of the museum"
-                },
-                {
-                    id: 2,
-                    name: 'Sculpture',
-                    image: 'assets/images/sculpture.jpg',
-                    date: 32021,
-                    description: "This is the sculpture exhibit of the museum"
-                },
-                {
-                    id: 3,
-                    name: 'Renaissance',
-                    image: 'assets/images/renaissance.jpg',
-                    date: 42021,
-                    description: "This is the renaissance exhibit of the museum"
-                }
-            ]
+            selectedExhibit: null
         };
     }
 
+    onExhibitSelect(exhibit) {
+        this.setState({selectedExhibit: exhibit});
+    }
+
     render() {
-        const directory = this.state.exhibits.map(exhibit => {
+        const directory = this.props.exhibits.map(exhibit => {
             return (
-                <div key={exhibit.id} className="col">
-                    <img src={exhibit.image} alt={exhibit.name} />
-                    <h2>{exhibit.name}</h2>
-                    <p>{exhibit.description}</p>
+                <div key={exhibit.id} className="col-md-5 m-1">
+                    <Card onClick={() => this.onExhibitSelect(exhibit)}>
+                        <CardImg width="100%" src={exhibit.image} alt={exhibit.name} />
+                        <CardImgOverlay>
+                            <CardTitle>{exhibit.name}</CardTitle>                            
+                        </CardImgOverlay>
+                    </Card>
                 </div>
-            );
+            )
         });
 
         return (
             <div className="container">
                 <div className="row">
                     {directory}
-                </div>
+                </div>                
             </div>
         );
     }
 }
+
 
 export default Directory;
