@@ -13,6 +13,21 @@ class Directory extends Component {
         this.setState({selectedExhibit: exhibit});
     }
 
+    renderSelectedExhibit(exhibit) {
+        if (exhibit) {
+            return (
+                <Card>
+                    <CardImg top src={exhibit.image} alt={exhibit.name} />
+                    <CardBody>
+                        <CardTitle>{exhibit.name}</CardTitle>
+                        <CardText>{exhibit.description}</CardText>
+                    </CardBody>
+                </Card>
+            )
+        }
+        return <div />;
+    }
+
     render() {
         const directory = this.props.exhibits.map(exhibit => {
             return (
@@ -31,7 +46,12 @@ class Directory extends Component {
             <div className="container">
                 <div className="row">
                     {directory}
-                </div>                
+                </div>         
+                    <div className="row">
+                        <div className="col-md-5 m-1">
+                            {this.renderSelectedExhibit(this.state.selectedExhibit)}
+                    </div>  
+                </div>  
             </div>
         );
     }
