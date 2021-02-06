@@ -12,8 +12,13 @@
     "react-popper": "^1.3.6",
     "react-scripts": "4.0.1",
     "reactstrap": "^8.5.1",
+    "typeface-barlow": "^1.1.13",
     "typeface-lobster": "^1.1.13",
+    "typeface-lora": "^1.1.13",
     "typeface-open-sans": "^1.1.13",
+    "typeface-poppins": "^1.1.13",
+    "typeface-pt-sans-narrow": "^1.1.13",
+    "typeface-roboto": "^1.1.13",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

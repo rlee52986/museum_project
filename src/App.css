@@ -1,9 +1,9 @@
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Barlow", sans-serif;
 }
 
 .card-title {
-  font: 500 1.25rem "Lobster", cursive;
+  font: 500 1.25rem "Roboto", arial;
 }
 
 .card-img-overlay .card-title {

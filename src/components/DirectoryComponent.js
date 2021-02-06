@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
+import ExhibitInfo from './ExhibitInfoComponent';
 
 class Directory extends Component {
     constructor(props) {
@@ -13,22 +14,7 @@ class Directory extends Component {
         this.setState({selectedExhibit: exhibit});
     }
 
-    renderSelectedExhibit(exhibit) {
-        if (exhibit) {
-            return (
-                <Card>
-                    <CardImg top src={exhibit.image} alt={exhibit.name} />
-                    <CardBody>
-                        <CardTitle>{exhibit.name}</CardTitle>
-                        <CardText>{exhibit.description}</CardText>
-                    </CardBody>
-                </Card>
-            )
-        }
-        return <div />;
-    }
-
-    render() {
+        render() {
         const directory = this.props.exhibits.map(exhibit => {
             return (
                 <div key={exhibit.id} className="col-md-5 m-1">
@@ -47,11 +33,7 @@ class Directory extends Component {
                 <div className="row">
                     {directory}
                 </div>         
-                    <div className="row">
-                        <div className="col-md-5 m-1">
-                            {this.renderSelectedExhibit(this.state.selectedExhibit)}
-                    </div>  
-                </div>  
+                    <ExhibitInfo exhibit={this.state.selectedExhibit}/>  
             </div>
         );
     }
