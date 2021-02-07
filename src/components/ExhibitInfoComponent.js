@@ -3,6 +3,21 @@ import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
 
 
 class ExhibitInfo extends Component {  
+
+    renderExhibit(exhibit) {
+        return (
+            <div className="col-md-5 m-1">
+                <Card>
+                    <CardImg top src={exhibit.image} alt={exhibit.name} />
+                    <CardBody>
+                        <CardTitle>{exhibit.name}</CardTitle>
+                        <CardText>{exhibit.description}</CardText>
+                    </CardBody>
+                </Card>
+            </div>
+        )
+    }
+
     renderComments(comments) {
         if(comments) {
             return (
@@ -24,28 +39,21 @@ class ExhibitInfo extends Component {
         )
     }
     
-    renderExhibit(exhibit) {
-        return (
-            <div className="col-md-5 m-1">
-                <Card>
-                    <CardImg top src={exhibit.image} alt={exhibit.name} />
-                    <CardBody>
-                        <CardTitle>{exhibit.name}</CardTitle>
-                        <CardText>{exhibit.description}</CardText>
-                    </CardBody>
-                </Card>
-            </div>
-        )
-    }
+    
     
     render() {
         if(this.props.exhibit) {
-            return <div className="row">{this.renderExhibit(this.props.exhibit)}
-            {this.renderComments(this.props.exhibit.comments)}
-            </div>
-        } else {
+            return (
+                <div className="container">
+                    <div className="row">
+                        {this.renderExhibit(this.props.exhibit)}
+                        {this.renderComments(this.props.exhibit.comments)}
+                    </div>
+                </div>
+            );
+        } 
             return <div />
-        }
+        
     }
 };
 
