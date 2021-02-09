@@ -1,10 +1,9 @@
-import { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
 
 
-class ExhibitInfo extends Component {  
 
-    renderExhibit(exhibit) {
+
+function RenderExhibit({exhibit}) {
         return (
             <div className="col-md-5 m-1">
                 <Card>
@@ -18,7 +17,7 @@ class ExhibitInfo extends Component {
         )
     }
 
-    renderComments(comments) {
+function RenderComments({comments}) {
         if(comments) {
             return (
                 <div className="col-md-5 m-1">
@@ -41,21 +40,21 @@ class ExhibitInfo extends Component {
     
     
     
-    render() {
-        if(this.props.exhibit) {
-            return (
-                <div className="container">
-                    <div className="row">
-                        {this.renderExhibit(this.props.exhibit)}
-                        {this.renderComments(this.props.exhibit.comments)}
-                    </div>
+function ExhibitInfo(props) {
+    if(props.exhibit) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <RenderExhibit exhibit={props.exhibit} />
+                    <RenderComments comments={props.exhibit.comments} />
                 </div>
-            );
-        } 
-            return <div />
+            </div>
+        );
+    } 
+        return <div />;
         
-    }
 };
+
 
 
 
