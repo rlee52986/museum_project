@@ -1,7 +1,8 @@
 import { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Directory from './DirectoryComponent';
 import ExhibitInfo from './ExhibitInfoComponent';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 import { EXHIBITS } from '../shared/exhibits';
 
 
@@ -21,13 +22,10 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar style={{backgroundColor: '#000000'}}>
-          <div className="container">
-            <NavbarBrand style={{color: '#ffffff'}} href="/">Museum</NavbarBrand>
-          </div>
-        </Navbar>
+        <Header />
         <Directory exhibits={this.state.exhibits} onClick={exhibitId => this.onExhibitSelect(exhibitId)}/>
         <ExhibitInfo exhibit={this.state.exhibits.filter(exhibit => exhibit.id === this.state.selectedExhibit)[0]}/>  
+        <Footer />
       </div>
     )
   }
