@@ -1,8 +1,8 @@
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
-function RenderDirectoryItem({exhibit, onClick}) {
+function RenderDirectoryItem({exhibit}) {
     return (
-        <Card onClick={() => onClick(exhibit.id)}>
+        <Card>
                         <CardImg width="100%" height="350px" src={exhibit.image} alt={exhibit.name} />
                         <CardImgOverlay>
                             <CardTitle>{exhibit.name}</CardTitle>                            
@@ -18,7 +18,7 @@ function Directory(props) {
         const directory = props.exhibits.map(exhibit => {
             return (
                 <div key={exhibit.id} className="col-md-5 m-1">
-                    <RenderDirectoryItem exhibit={exhibit} onClick={props.onClick} />
+                    <RenderDirectoryItem exhibit={exhibit} />
                 </div>
             )
         });
