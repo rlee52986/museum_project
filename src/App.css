@@ -49,3 +49,9 @@ a {
 .navbar-dark {
   background-color: #901CAD;
 }
+
+.navbar-toggler {
+  color: white;
+  border-color: white;
+} 
+

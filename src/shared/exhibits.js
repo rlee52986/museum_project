@@ -23,7 +23,7 @@ export const EXHIBITS = [
             {
                 id: 2,
                 rating: 4, 
-                text: "I saw a rare classic painting on my last visit.",
+                text: "I saw a rare classic painting on my last visit",
                 author: "Tameika Graff",
                 date: "2019-02-18T18:12Z"
             },
